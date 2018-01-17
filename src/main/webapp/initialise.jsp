@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -27,19 +28,16 @@
 </style>
 </head>
 <body>
-	<div class="form-group">
-		<label for="inputEmail3" class="col-sm-2 control-label"><button
-				type="button" class="btn btn-success">导入教师信息</button> </label>
-		<div class="col-sm-10">
-			<input type="file" />
+	<form action="${pageContext.request.contextPath}/input/ImportXls" method="post"
+		enctype="multipart/form-data">
+		<div class="form-group">
+			<label for="inputEmail3" class="col-sm-2 control-label"><input
+				type="submit" class="btn btn-success" value="导入信息" /> </label>
+			<div class="col-sm-10">
+				<label for="inputEmail3" class="col-sm-2 control-label"><input type="file" name="filename" />教师信息</label>
+				<label for="inputEmail3" class="col-sm-2 control-label"><input type="file" name="sfilename" />学生信息</label>
+			</div>
 		</div>
-	</div>
-	<div class="form-group">
-		<label for="inputEmail3" class="col-sm-2 control-label"><button
-				type="button" class="btn btn-success">导入学生信息</button> </label>
-		<div class="col-sm-10">
-			<input type="file" />
-		</div>
-	</div>
+	</form>
 </body>
 </html>

@@ -2,6 +2,7 @@ package cn.edu.tit.role.Iservice;
 
 import java.util.List;
 
+import cn.edu.tit.role.bean.Privilege;
 import cn.edu.tit.role.bean.Role;
 
 /**
@@ -21,39 +22,41 @@ public interface IRoleService {
 	/**
 	 * 添加角色
 	 * @param role
-	 * 添加的角色信息  包括(权限id列表，角色名称，父角色id)
+	 * 添加的角色信息  包括(权限id列表，角色名称，父角色id，创建人工号)
 	 */
-	public void addRole(Role role); 
+	public void addRole(String role_name,List<Integer> privilegeList,String parentRoleId,String create_user); 
 	
 	/**
 	 * 修改角色信息
 	 * @param role_id
-	 */
-	public void editRole(String role_id);
-	/**
-	 * 添加角色权限
-	 * @param role_id
 	 * 被修改角色id
+	 * @param role_name
+	 * 被修改角色名
+	 * @param update_user
+	 * 修改人工号
+	 * @param old_privilegeIdList
+	 * 被修改角色原权限列表
+	 * @param new_privilegeIdList
+	 * 被修改角色修改后的权限列表
 	 */
-	public void addRolePrivilege(String role_id);
+	public void editRole(String role_id,String role_name,String update_user,List<Integer>old_privilegeIdList,List<Integer>new_privilegeIdList);
 	
-	/**
-	 * 删除角色权限
-	 * @param role_id
-	 * 被修改角色id
-	 */
-	public void delRolePrivilege(String role_id);
 	
 	/**
 	 * 为角色添加用户
-	 * @param role_id：角色id
-	 * @param staff_id：添加的用户id列表
+	 * @param role_id
+	 * 被修改角色id
+	 * @param staff_id
+	 * 添加的用户id列表
+	 * @param create_user
+	 * 修改人id
 	 */
-	public void addUserForRole(String role_id,List<String> staff_id);
+	public void addUserForRole(String role_id,String create_user,List<String> staff_id);
 	
 	/**
 	 * 查询所有角色
-	 * @return：查询到的角色列表
+	 * @return
+	 * 查询到的角色列表
 	 */
 	public List<Role> schAllRole();
 	
@@ -65,4 +68,32 @@ public interface IRoleService {
 	 * 自角色列表
 	 */
 	public List<Role> schAllChildRole(String role_id);
+	
+	/**
+	 * 查询某角色的所有权限
+	 * @param role_id
+	 * 某角色的id
+	 * @return
+	 */
+	public List<Privilege> schPrivilegeByRId(String role_id);
+	
+	/**
+	 * 删除某角色绑定的用户
+	 * @param role_id
+	 * 被修改角色id
+	 * @param users
+	 * 被解绑用户的id列表
+	 */
+	public void delUsersOfRole(String role_id,List<String> users);
+	
+	/**
+	 * 按条件查询角色信息
+	 * @param role_id
+	 * @param role_name
+	 * @return
+	 * 角色列表
+	 */
+	public List<Role> findRoleByCondition(String role_id,String role_name);
+	
+	
 }

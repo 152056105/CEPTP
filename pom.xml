@@ -79,7 +79,25 @@
 			<version>${spring.version}</version>
 		</dependency>
 		<!-- spring end -->
-
+		<!-- poi start -->
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>3.9</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>3.6</version>
+		</dependency>
+		<!-- poi end -->
+		<!--Google tools -->
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>15.0</version>
+		</dependency>
+		<!--Google tools end -->
 		<!-- mybatis start -->
 		<dependency>
 			<groupId>org.mybatis</groupId>
@@ -168,6 +186,7 @@
 			<artifactId>jackson-mapper-asl</artifactId>
 			<version>1.9.4</version>
 		</dependency>
+
 	</dependencies>
 	<build>
 		<finalName>CEPTP</finalName>
